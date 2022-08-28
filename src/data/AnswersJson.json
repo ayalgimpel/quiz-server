@@ -1,0 +1,28 @@
+{
+    "Answer":[
+        {
+            "Id":1,
+            "Qustion_Id":1,
+            "Content":"Cat",
+            "IsCorrect":false
+        },
+        {
+            "Id":2,
+            "Qustion_Id":1,
+            "Content":"Dog",
+            "IsCorrect":false
+        },
+        {
+            "Id":3,
+            "Qustion_Id":1,
+            "Content":"Whale",
+            "IsCorrect":true
+        },
+        {
+            "Id":4,
+            "Qustion_Id":1,
+            "Content":"Elefent",
+            "IsCorrect":false
+        }
+    ]
+}

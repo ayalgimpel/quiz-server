@@ -1,0 +1,14 @@
+{
+    "Question":[
+        {
+            "Id" : 1,
+            "Name" : "First Qustion",
+            "Quiz_Id": 1,
+            "Single_Choice_A" : true,
+            "Mulitple_Choice_A" : false,
+            "Content":"What is the biggest Animal Exist in the world ? ",
+            "Suplementery_Content":"",
+            "Answers":["1","2","3","4"]
+        }
+    ]
+}

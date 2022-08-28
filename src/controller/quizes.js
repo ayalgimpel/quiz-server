@@ -2,8 +2,8 @@ const db = require("../Repository/db.quizesRepository");
 
 class QuizesController {
   // Get Questions
-  getAllQuestions() {
-    return db.getAllquizes();
+  getAllQuizes() {
+    return db.getAllQuizes();
   }
 
   // Add question to the list

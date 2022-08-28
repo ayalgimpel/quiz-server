@@ -1,0 +1,13 @@
+{
+    "Student":[
+        {
+            "Id":1,
+            "First_Name":"Ayal",
+            "Last_Name":"Gimple",
+            "Institue_Id":[1],
+            "Mail":"AyalGimple24@gmail.com",
+            "Phone_Number":"0526539165",
+            "Quiz_Start_Date" : "20/08/2022"
+        }
+    ]
+}

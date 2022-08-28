@@ -1,0 +1,15 @@
+{
+    "Quiz":[
+        {
+            "Id":1,
+            "Quiz_Code":"firstQuiz.......1",
+            "Name" : "First Animals Quiz - Tel Aviv University",
+            "Intrudaction":"WAelcome to first biologic quiz of tel aviv university, good luck...!",
+            "Institue_Id":[1],
+            "Quiz_Subject":[5],
+            "Qustions":[1],
+            "Passing_Grade" : 56,
+            "Aproached_Students" : []
+        }
+    ]
+}
