@@ -11,4 +11,14 @@ router.get(
     res.send(data);
   })
 );
+ router.delete(
+  "/deleteQuiz",
+  asyncHandler(async (req, res) => {
+    const response = await controller.DeleteQuiz(req.query.quizID);
+    if(response.error)
+    return res.status(500).send(response)
+
+    return res.status(200).send(response);
+  })
+)
 module.exports = router;

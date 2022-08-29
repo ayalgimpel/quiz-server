@@ -1,16 +1,21 @@
 const db = require("../Repository/db.quizesRepository");
 
 class QuizesController {
-  // Get Questions
+
   getAllQuizes() {
     return db.getAllQuizes();
   }
+  async DeleteQuiz(quizID){
+    return await db.Delete(quizID);
+  }
+  GetQuizById(){
+    return db.GetQuizById();
+  }
+  AddQuiz(){
+    return db.addQuiz();
+  }
 
-  // Add question to the list
-//   addQuestion(question) {
-//     if (!question.Title) throw "question has no title";
-//     return db.addQuestion(question);
-//   }
+
 }
 
 module.exports = new QuizesController();

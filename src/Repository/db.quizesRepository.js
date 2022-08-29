@@ -8,25 +8,26 @@ class DBQuizesRepository {
 
   async getAllQuizes() {
     const data = JSON.parse(await readFile(jsonFileName));
-    return data;
+    return data.Quiz;
   }
-   createUUID() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-       var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-       return v.toString(16);
+  createUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
     });
- }
+  }
 
   async addQuiz(quiz) {
     let data = JSON.parse(await readFile(jsonFileName));
     const newId = this.createUUID();
     const newQuiz = { Id: newId, Name: quiz.Name };
-    data.push(newQuiz);
+    data.Quiz.push(newQuiz);
     await writeFile(jsonFileName, JSON.stringify(data));
     return newQuiz;
   }
-  GetQuizById(id) {
-
+  async GetQuizById(id) {
+    const data = JSON.parse(await readFile(jsonFileName));
+    return data.Quiz.filter(quiz => quiz.Id === id);
   }
   Post(quiz) {
 
@@ -34,9 +35,21 @@ class DBQuizesRepository {
   Put(quiz) {
 
   }
-  Delete(id) {
-
-
+  async Delete(quizID) {
+    let data = JSON.parse(await readFile(jsonFileName));
+    const newQuizArr = data.Quiz.filter(q=>q.Id !== quizID);
+    data.Quiz = newQuizArr;
+    // const indexOfObject = data.Quiz.findIndex(object => object.id === quizID
+    // );
+    // data.Quiz.splice(indexOfObject, 1);
+    try{
+      await writeFile(jsonFileName, JSON.stringify(data));
+      return {TransactionResult: true, deletedQuizID:quizID};
+    }
+    catch(err){
+      return {TransactionResult: false, error:err}
+    }
+  
   }
 }
 module.exports = new DBQuizesRepository();
