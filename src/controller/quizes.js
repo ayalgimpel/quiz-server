@@ -9,8 +9,8 @@ class QuizesController {
   async DeleteQuiz(quizID) {
     return await quizesRepository.Delete(quizID);
   }
-  GetQuizById() {
-    return quizesRepository.GetQuizById();
+  GetQuizById(id) {
+    return quizesRepository.GetQuizById(id);
   }
   GetQuizByQuizCode(quizeCode) {
     return quizesRepository.GetQuizByQuizCode(quizeCode);

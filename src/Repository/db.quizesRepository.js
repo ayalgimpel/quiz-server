@@ -25,8 +25,10 @@ class DBQuizesRepository {
     await writeFile(jsonFileName, JSON.stringify(data));
     return newQuiz;
   }
-  async GetQuizById(Id) {
+  async GetQuizById(id) {
+    console.log(id)
     const data = JSON.parse(await readFile(jsonFileName));
+
     return data.Quiz.find(quiz => quiz.Id === id);
   }
 
