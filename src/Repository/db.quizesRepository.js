@@ -25,9 +25,9 @@ class DBQuizesRepository {
     await writeFile(jsonFileName, JSON.stringify(data));
     return newQuiz;
   }
-  async GetQuizById(id) {
+  async GetQuizById(Id) {
     const data = JSON.parse(await readFile(jsonFileName));
-    return data.Quiz.filter(quiz => quiz.Id === id);
+    return data.Quiz.find(quiz => quiz.Id === Id);
   }
   Post(quiz) {
 
@@ -39,9 +39,7 @@ class DBQuizesRepository {
     let data = JSON.parse(await readFile(jsonFileName));
     const newQuizArr = data.Quiz.filter(q=>q.Id !== quizID);
     data.Quiz = newQuizArr;
-    // const indexOfObject = data.Quiz.findIndex(object => object.id === quizID
-    // );
-    // data.Quiz.splice(indexOfObject, 1);
+    
     try{
       await writeFile(jsonFileName, JSON.stringify(data));
       return {TransactionResult: true, deletedQuizID:quizID};

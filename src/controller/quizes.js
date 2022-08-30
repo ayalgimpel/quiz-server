@@ -8,8 +8,8 @@ class QuizesController {
   async DeleteQuiz(quizID){
     return await db.Delete(quizID);
   }
-  GetQuizById(){
-    return db.GetQuizById();
+  GetQuizById(Id){
+    return db.GetQuizById(Id);
   }
   AddQuiz(){
     return db.addQuiz();
