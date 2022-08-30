@@ -12,7 +12,10 @@
         "Passing_Grade": 56,
         "Aproached_Students_Id": [],
         "Last_Updated": "25.01.01",
-        "IsActive": false
+        "IsActive": false,
+        "Header":"",
+        "Messege_If_Past":"",
+        "Messege_If_Faild":""
       },
       {
         "Id": "2",
@@ -27,7 +30,10 @@
         "Passing_Grade": 56,
         "Aproached_Students_Id": [],
         "Last_Updated": "25.01.02",
-        "IsActive": true
+        "IsActive": true,
+        "Header":"",
+        "Messege_If_Past":"",
+        "Messege_If_Faild":""
       }
 ]
 }

@@ -11,7 +11,15 @@ router.get(
     res.send(data);
   })
 );
-router.delete(
+router.get(
+  "/getById",
+  asyncHandler(async (req, res) => {
+    const data = await controller.GetQuizById(req.query.Id);
+    res.send(data);
+  })
+);
+
+ router.delete(
   "/deleteQuiz",
   asyncHandler(async (req, res) => {
     const response = await controller.DeleteQuiz(req.query.quizID);
