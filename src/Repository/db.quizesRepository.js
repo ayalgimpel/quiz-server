@@ -27,8 +27,15 @@ class DBQuizesRepository {
   }
   async GetQuizById(id) {
     const data = JSON.parse(await readFile(jsonFileName));
-    return data.Quiz.filter(quiz => quiz.Id === id);
+    return data.Quiz.find(quiz => quiz.Id === id);
   }
+
+  async GetQuizByQuizCode(quizCode) {
+    let quizes = await this.getAllQuizes();
+    const quize = quizes.find(q => q.Quiz_Code === quizCode)
+    return this.GetQuizById(quize.Id);
+  }
+
   Post(quiz) {
 
   }
@@ -37,19 +44,19 @@ class DBQuizesRepository {
   }
   async Delete(quizID) {
     let data = JSON.parse(await readFile(jsonFileName));
-    const newQuizArr = data.Quiz.filter(q=>q.Id !== quizID);
+    const newQuizArr = data.Quiz.filter(q => q.Id !== quizID);
     data.Quiz = newQuizArr;
-    // const indexOfObject = data.Quiz.findIndex(object => object.id === quizID
-    // );
-    // data.Quiz.splice(indexOfObject, 1);
-    try{
+
+    try {
       await writeFile(jsonFileName, JSON.stringify(data));
-      return {TransactionResult: true, deletedQuizID:quizID};
+      return { TransactionResult: true, deletedQuizID: quizID };
     }
-    catch(err){
-      return {TransactionResult: false, error:err}
+    catch (err) {
+      return { TransactionResult: false, error: err }
     }
-  
+
   }
+
+
 }
 module.exports = new DBQuizesRepository();

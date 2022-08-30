@@ -4,9 +4,24 @@
             "Id":1,
             "First_Name":"Ayal",
             "Last_Name":"Gimple",
-            "Institue_Id":[1],
+            "Institues":[1],
             "Mail":"AyalGimple24@gmail.com",
-            "Phone_Number":"0526539165",
+            "Quiz_Start_Date" : "20/08/2022"
+        },
+        {
+            "Id":2,
+            "First_Name":"Gil",
+            "Last_Name":"Levy",
+            "Institues":[1],
+            "Mail":"Gil@gmail.com",
+            "Quiz_Start_Date" : "20/08/2022"
+        },
+        {
+            "Id":3,
+            "First_Name":"Marko",
+            "Last_Name":"Polo",
+            "Institues":[1],
+            "Mail":"Marko@gmail.com",
             "Quiz_Start_Date" : "20/08/2022"
         }
     ]

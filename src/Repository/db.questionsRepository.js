@@ -2,7 +2,7 @@ const fs = require("fs");
 const util = require("util");
 const writeFile = util.promisify(fs.writeFile);
 const readFile = util.promisify(fs.readFile);
-const jsonFileName = "./data/QuestionJson.json";
+const jsonFileName = "./src/data/QuestionJson.json";
 
 class DBQuestionsRepository {
 
@@ -22,9 +22,12 @@ class DBQuestionsRepository {
     await writeFile(jsonFileName, JSON.stringify(data));
     return newQuestion;
   }
-  GetQustionById(id) {
+  // async GetQustionById(id) {
+  //let questions = await this.getAllQuestions();
+  //const question = questions.find(q => q.id === id)
+  // return this.GetQustionById(question.Id);
 
-  }
+  // }
   Post(question) {
 
   }
@@ -34,6 +37,11 @@ class DBQuestionsRepository {
   Delete(id) {
 
 
+  }
+  async GetByQuizId(quizId) {
+    const { Questions } = JSON.parse(await readFile(jsonFileName));
+    const filterd =  Questions.filter(question => question.Quiz_Id === quizId);
+    return filterd
   }
 }
 

@@ -1,15 +1,23 @@
-const db = require("../Repository/db.questionsRepository");
+const answersRepository = require("../Repository/db.answersRepository");
+const questionsRepository = require("../Repository/db.questionsRepository");
 
 class QuestionsController {
   // Get Questions
   getAllQuestions() {
-    return db.getAllQuestions();
+    return questionsRepository.getAllQuestions();
   }
 
   // Add question to the list
   addQuestion(question) {
     if (!question.Title) throw "question has no title";
-    return db.addQuestion(question);
+    return questionsRepository.addQuestion(question);
+  }
+  GetQustionById(){
+    return questionsRepository.GetQustionById();
+  }
+
+  GetAnswersByQuestionId(questionId){
+    return answersRepository.getAllAnswers(questionId);
   }
 }
 

@@ -1,13 +1,13 @@
 {"Quiz":[
     {
         "Id": "1",
-        "Quiz_Code": "firstQuiz.......1",
+        "Quiz_Code": "1",
         "Name": "First Animals Quiz - Tel Aviv University",
         "Intrudaction": "WAelcome to first biologic quiz of tel aviv university, good luck...!",
         "Institue_Name": "Tel-Aviv University",
         "Quiz_Subject": "Animals",
         "Questions": [
-          1
+          "1"
         ],
         "Passing_Grade": 56,
         "Aproached_Students_Id": [],
@@ -16,13 +16,13 @@
       },
       {
         "Id": "2",
-        "Quiz_Code": "Second-Quiz.......2",
+        "Quiz_Code": "2",
         "Name": "Second Animals Quiz - Tel Aviv University",
         "Intrudaction": "WAelcome to Second Anomal quiz of tel aviv university, good luck...!",
         "Institue_Name": "Tel-Aviv University",
         "Quiz_Subject": "Animals",
         "Questions": [
-          1
+          "1"
         ],
         "Passing_Grade": 56,
         "Aproached_Students_Id": [],

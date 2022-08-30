@@ -1,18 +1,25 @@
-const db = require("../Repository/db.quizesRepository");
+const quizesRepository = require("../Repository/db.quizesRepository");
+const questionsRepository = require("../Repository/db.questionsRepository");
 
 class QuizesController {
 
   getAllQuizes() {
-    return db.getAllQuizes();
+    return quizesRepository.getAllQuizes();
   }
-  async DeleteQuiz(quizID){
-    return await db.Delete(quizID);
+  async DeleteQuiz(quizID) {
+    return await quizesRepository.Delete(quizID);
   }
-  GetQuizById(){
-    return db.GetQuizById();
+  GetQuizById() {
+    return quizesRepository.GetQuizById();
   }
-  AddQuiz(){
-    return db.addQuiz();
+  GetQuizByQuizCode(quizeCode) {
+    return quizesRepository.GetQuizByQuizCode(quizeCode);
+  }
+  AddQuiz() {
+    return quizesRepository.addQuiz();
+  }
+  GetQuestionsByQuizId(quizId) {
+    return questionsRepository.GetByQuizId(quizId);
   }
 
 
