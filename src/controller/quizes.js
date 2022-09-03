@@ -21,6 +21,9 @@ class QuizesController {
   GetQuestionsByQuizId(quizId) {
     return questionsRepository.GetByQuizId(quizId);
   }
+  EditQuiz(quizId, payload){
+    return quizesRepository.EditQuiz(quizId, payload);
+  }
   AddQuestionToQuiz(questionId,quizId){
     return quizesRepository.AddQuestionToQuiz(questionId,quizId)
   }

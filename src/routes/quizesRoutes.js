@@ -1,3 +1,4 @@
+const { request } = require("express");
 const express = require("express");
 const router = express.Router();
 const controller = require("../controller/quizes");
@@ -54,6 +55,15 @@ router.get('/:quizId/questions',
     const data = await controller.GetQuestionsByQuizId(quizId);
     res.send(data);
   }));
+
+router.put('/:quizId', asyncHandler(async (req, res) => {
+  console.log('sdfghj');
+  const { quizId } = req.params;
+  const payload = req.body;
+  const data = await controller.EditQuiz(quizId, payload);
+  res.send(data);
+}));
+
 
 router.get('/AddQuestionToQuizList', asyncHandler(async (req, res) => {
   const response = await controller.AddQuestionToQuiz(req.query.questionId, req.query.quizId);

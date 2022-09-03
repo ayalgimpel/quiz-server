@@ -20,7 +20,7 @@ class DBQuizesRepository {
     });
   }
 
-  async addQuiz(quiz) {
+  async addNewQuiz(quiz) {
     let data = JSON.parse(await readFile(jsonFileName));
     const newId = this.createUUID();
     const newQuiz = { Id: newId, Name: quiz.Name };
@@ -29,10 +29,15 @@ class DBQuizesRepository {
     return newQuiz;
   }
   async GetQuizById(id) {
-    console.log(id)
     const data = JSON.parse(await readFile(jsonFileName));
-
     return data.Quiz.find(quiz => quiz.Id === id);
+  }
+  async EditQuiz(quizId, payload) {
+    console.log(payload.Passing_Grade)
+    const data = JSON.parse(await readFile(jsonFileName));
+    const quizToEdit = data.Quiz.find(quiz => quiz.Id === quizId);
+    Object.assign(quizToEdit, payload);
+    await writeFile(jsonFileName, JSON.stringify(data));
   }
 
   async GetQuizByQuizCode(quizCode) {
