@@ -1,0 +1,110 @@
+{
+    "Institue":
+    [
+        {
+            "Id":"1",
+            "Name" : "Tel-Aviv University",
+            "QuizSubjects":{
+                "Id" :[1,2,4]
+            }
+        },
+        {
+            "Id" : "2",
+            "Name":"Ben-Gurion University",
+            "QuizSubjects":{
+                "Id" :[2,4,5]
+            }
+        },
+        {
+            "Id" : "3",
+            "Name":"Technion University in Haifa",
+            "QuizSubjects":{
+                "Id" :[1,3,5]
+            }
+        }
+    ],
+    "QuizSubject":[
+      {
+        "Id" : "1",
+        "Name" : "Biology"
+      },
+      {
+        "Id" : "2",
+        "Name" : "History"
+      },
+      {
+        "Id" : "3",
+        "Name" : "Math"
+      },
+      {
+        "Id" : "4",
+        "Name" : "Computer_ciense"
+      },
+      {
+        "Id":"5",
+        "Name" : "Animals"
+      }
+    ],
+    "Question":[
+        {
+            "Id" : "1",
+            "Name" : "First Qustion",
+            "Quiz_Id": 1,
+            "Single_Choice_A" : true,
+            "Mulitple_Choice_A" : false,
+            "Content":"What is the biggest Animal Exist in the world ? ",
+            "Suplementery_Content":"",
+            "Answers":["1","2","3","4"]
+        }
+    ],
+    "Answer":[
+        {
+            "Id":"1",
+            "Qustion_Id":1,
+            "Content":"Cat",
+            "IsCorrect":false
+        },
+        {
+            "Id":"2",
+            "Qustion_Id":1,
+            "Content":"Dog",
+            "IsCorrect":false
+        },
+        {
+            "Id":"3",
+            "Qustion_Id":1,
+            "Content":"Whale",
+            "IsCorrect":true
+        },
+        {
+            "Id":"4",
+            "Qustion_Id":1,
+            "Content":"Elefent",
+            "IsCorrect":false
+        }
+    ],
+    "Quiz":[
+        {
+            "Id":"1",
+            "Quiz_Code":"firstQuiz.......1",
+            "Name" : "First Animals Quiz - Tel Aviv University",
+            "Intrudaction":"WAelcome to first biologic quiz of tel aviv university, good luck...!",
+            "Institue_Id":[1],
+            "Quiz_Subject":[5],
+            "Qustions":[1],
+            "Passing_Grade" : 56,
+            "Aproached_Students" : []
+        }
+    ],
+    "Student":[
+        {
+            "Id":"1",
+            "First_Name":"Ayal",
+            "Last_Name":"Gimple",
+            "Institue_Id":[1],
+            "Mail":"AyalGimple24@gmail.com",
+            "Phone_Number":"0526539165",
+            "Quiz_Start_Date" : "20/08/2022"
+        }
+    ]
+}

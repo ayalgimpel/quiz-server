@@ -3,12 +3,14 @@ const util = require("util");
 const writeFile = util.promisify(fs.writeFile);
 const readFile = util.promisify(fs.readFile);
 const jsonFileName = "./src/data/QuestionJson.json";
+const jsonFileNameQuiz = "./src/data/QuizesJson.json";
+
 
 class DBQuestionsRepository {
 
   async getAllQuestions() {
     const data = JSON.parse(await readFile(jsonFileName));
-    return data;
+    return data.Questions;
   }
 
   async addQuestion(question) {
@@ -22,12 +24,13 @@ class DBQuestionsRepository {
     await writeFile(jsonFileName, JSON.stringify(data));
     return newQuestion;
   }
-  // async GetQustionById(id) {
-  //let questions = await this.getAllQuestions();
-  //const question = questions.find(q => q.id === id)
+ async GetQustionById(id) {
+  let questions = await this.getAllQuestions();
+   const question = questions.find(q => q.Id === id);
+   return question;
   // return this.GetQustionById(question.Id);
 
-  // }
+  }
   Post(question) {
 
   }
@@ -38,10 +41,16 @@ class DBQuestionsRepository {
 
 
   }
+  
   async GetByQuizId(quizId) {
-    const { Questions } = JSON.parse(await readFile(jsonFileName));
-    const filterd =  Questions.filter(question => question.Quiz_Id === quizId);
-    return filterd
+    const quizData = JSON.parse(await readFile(jsonFileNameQuiz));
+    const quize = quizData.Quiz.filter(q => q.Id === quizId);
+    const filteredQuestions = [];
+    for (const id of quize[0].Questions) {
+      let question = await this.GetQustionById(id);
+      filteredQuestions.push(question);
+    }
+    return filteredQuestions;
   }
 }
 

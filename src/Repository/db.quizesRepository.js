@@ -3,6 +3,8 @@ const util = require("util");
 const writeFile = util.promisify(fs.writeFile);
 const readFile = util.promisify(fs.readFile);
 const jsonFileName = "./src/data/QuizesJson.json";
+const questionsRepository = require("../Repository/db.questionsRepository");
+const _ = require("lodash");
 
 class DBQuizesRepository {
 
@@ -10,6 +12,7 @@ class DBQuizesRepository {
     const data = JSON.parse(await readFile(jsonFileName));
     return data.Quiz;
   }
+
   createUUID() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
       var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -57,6 +60,61 @@ class DBQuizesRepository {
       return { TransactionResult: false, error: err }
     }
 
+  }
+  async AddQuestionToQuiz(questionId, quizId) {
+
+    let data = JSON.parse(await readFile(jsonFileName));
+    let question = await questionsRepository.GetQustionById(questionId);
+    if (!question) {
+      throw new Error("object not found")
+    }
+
+    const foundQuiz = data.Quiz.find(q => q.Id === quizId);
+    if (!foundQuiz) {
+      throw new Error("object not found")
+    }
+
+    const quizQuestions = foundQuiz.Questions;
+    if (quizQuestions.indexOf(question.Id) >= 0) {
+      throw new Error("Question Is Allready Exist...")
+    }
+
+
+
+    quizQuestions.push(question.Id);
+    foundQuiz.Questions = _.sortBy(quizQuestions, quizQuestion => quizQuestion);
+    try {
+      await writeFile(jsonFileName, JSON.stringify(data));
+      return { TransactionResult: true, addedQuestionID: questionId };
+    }
+    catch (err) {
+      return { TransactionResult: false, error: err }
+    }
+
+
+  }
+  async RemoveQuestionFromQuiz(questionId, quizId) {
+
+    let data = JSON.parse(await readFile(jsonFileName));
+    let question = await questionsRepository.GetQustionById(questionId);
+    if (!question) {
+      throw new Error("object not found")
+    }
+
+    const foundQuiz = data.Quiz.find(q => q.Id === quizId);
+    if (!foundQuiz) {
+      throw new Error("object not found")
+    }
+
+    _.remove(foundQuiz.Questions, id => id === questionId)
+
+    try {
+      await writeFile(jsonFileName, JSON.stringify(data));
+      return { TransactionResult: true, removedQuestionID: questionId };
+    }
+    catch (err) {
+      return { TransactionResult: false, error: err }
+    }
   }
 
 

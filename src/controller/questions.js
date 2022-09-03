@@ -12,8 +12,8 @@ class QuestionsController {
     if (!question.Title) throw "question has no title";
     return questionsRepository.addQuestion(question);
   }
-  GetQustionById(){
-    return questionsRepository.GetQustionById();
+  GetQustionById(id){
+    return questionsRepository.GetQustionById(id);
   }
 
   GetAnswersByQuestionId(questionId){

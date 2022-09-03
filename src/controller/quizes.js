@@ -21,6 +21,12 @@ class QuizesController {
   GetQuestionsByQuizId(quizId) {
     return questionsRepository.GetByQuizId(quizId);
   }
+  AddQuestionToQuiz(questionId,quizId){
+    return quizesRepository.AddQuestionToQuiz(questionId,quizId)
+  }
+  RemoveQuestionFromQuiz(questionId,quizId){
+    return quizesRepository.RemoveQuestionFromQuiz(questionId,quizId);
+  }
 
 
 }

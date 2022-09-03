@@ -3,7 +3,7 @@
         {
             "Id" : "1",
             "Name" : "First Qustion",
-            "Quiz_Id": "1",
+            "Quizes_Id": ["1"],
             "Single_Choice_A" : true,
             "Mulitple_Choice_A" : false,
             "Content":"What is the biggest Animal Exist in the world ? ",
@@ -13,7 +13,7 @@
         {
             "Id" : "2",
             "Name" : "Second Qustion",
-            "Quiz_Id": "1",
+            "Quizes_Id": ["1"],
             "Single_Choice_A" : true,
             "Mulitple_Choice_A" : false,
             "Content":"What is the small Animal Exist in the world ? ",
@@ -23,7 +23,7 @@
         {
             "Id" : "3",
             "Name" : "Three Qustion",
-            "Quiz_Id": "2",
+            "Quizes_Id": ["2"],
             "Single_Choice_A" : true,
             "Mulitple_Choice_A" : false,
             "Content":"What is the biggest Animal Exist in the world ? ",

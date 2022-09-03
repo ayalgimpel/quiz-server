@@ -6,7 +6,6 @@ const asyncHandler = require("../helpers/asyncHandler");
 // Get questions from json
 router.get("/", asyncHandler(async (req, res) => {
   const data = await controller.getAllQuestions();
-
   res.send(data);
 }));
 

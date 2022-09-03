@@ -34,7 +34,7 @@ router.get(
   "/getById",
   asyncHandler(async (req, res) => {
     const data = await controller.GetQuizById(req.query.Id);
-    res.send(data);
+    res.send(data); 
   })
 );
 
@@ -48,11 +48,23 @@ router.get(
 );
 
 
-router.get('/:quizId/questions',
+router.get('/questionsByQuizId',
   asyncHandler(async (req, res) => {
-    const { quizId } = req.params;
-    const data = await controller.GetQuestionsByQuizId(quizId);
+    const data = await controller.GetQuestionsByQuizId(req.query.quizId);
     res.send(data);
   }));
+
+  router.get('/AddQuestionToQuizList' ,asyncHandler(async(req,res) =>{
+  const response = await controller.AddQuestionToQuiz(req.query.questionId, req.query.quizId);
+  if(response.TransactionResult)
+   return res.send(response.addedQuestionID);
+   return res.status(500).send(response.error);
+  }));
+  router.get('/RemoveQuestionFromList' ,asyncHandler(async(req,res) =>{
+    const response = await controller.RemoveQuestionFromQuiz(req.query.questionId, req.query.quizId);
+    if(response.TransactionResult)
+     return res.send(response.removedQuestionID);
+     return res.status(500).send(response.error);
+    }));
 
 module.exports = router;
