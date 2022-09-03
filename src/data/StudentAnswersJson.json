@@ -1,0 +1,17 @@
+{
+  "StudentAnswers": [
+    {
+      "Quiz_Id": "1",
+      "Student_Id": "1",
+      "Answer_Id": "1",
+      "crtatedDate": "quiz start datetime - Date type"
+    },
+    {
+      "Quiz_Id": 1,
+      "Student_Id": 2,
+      "Answer_Id": 1,
+      "CreatedDate": "2022-09-01T09:37:28.133Z",
+      "id": "1c931f82-8b79-4c2b-bf5c-0b6e1289b481"
+    }
+  ]
+}

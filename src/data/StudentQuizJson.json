@@ -1,0 +1,23 @@
+{
+    "StudentQuizes": [
+        {
+            "Id": "1",
+            "Quiz_Id": "1",
+            "Student_Id": "1",
+            "CreatedDate": "quiz start datetime - Date type",
+            "EndDate": "quiz end datetime - Date type",
+            "AnswerQustiones": [
+                {
+                    "Qustion_Id": "1",
+                    "Answer_Id": "1"
+                }
+            ]
+        },
+        {
+            "Quiz_Id": 1,
+            "Student_Id": 2,
+            "CreatedDate": "2022-09-01T08:43:13.421Z",
+            "Id": "b832dde3-7c68-4e2b-bb71-ec54362061dd"
+        }
+    ]
+}

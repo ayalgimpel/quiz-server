@@ -13,7 +13,7 @@
         {
             "Id" : "2",
             "Name" : "Second Qustion",
-            "Quizes_Id": ["1"],
+            "Quizes_Id": ["1","2"],
             "Single_Choice_A" : true,
             "Mulitple_Choice_A" : false,
             "Content":"What is the small Animal Exist in the world ? ",
