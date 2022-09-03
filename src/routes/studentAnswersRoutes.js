@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const controller = require("../controller/studentAnswers.js");
+const controller = require("../controller/studentAnswers");
 const asyncHandler = require("../helpers/asyncHandler");
 
 // Get questions from json
