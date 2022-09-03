@@ -1,15 +1,13 @@
-const db = require("../Repository/db.studentsRepository.js");
+const studentsRepository = require("../Repository/db.studentsRepository.js");
 
 class StudentsController {
   // Get Questions
   getAllStudents() {
-    return db.getAllStudents();
+    return studentsRepository.getAllStudents();
   }
 
-  // Add question to the list
-//   addQuestion(question) {
-//     if (!question.Title) throw "question has no title";
-//     return db.addQuestion(question);
-//   }
+  createStudent(payload) {
+    return studentsRepository.createStudent(payload);
+  }
 }
 module.exports = new StudentsController();

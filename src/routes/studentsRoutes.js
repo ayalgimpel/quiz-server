@@ -12,4 +12,14 @@ router.get(
     res.send(data);
   })
 );
+
+router.post(
+  "/",
+  asyncHandler(async (req, res) => {
+    const { First_Name, Last_Name, Email, phone } = req.body;
+    const data = await controller.createStudent({ First_Name, Last_Name, Email, phone, createdDate: new Date() });
+
+    res.send(data);
+  })
+);
 module.exports = router;

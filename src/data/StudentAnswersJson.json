@@ -1,17 +1,32 @@
 {
-  "StudentAnswers": [
-    {
-      "Quiz_Id": "1",
-      "Student_Id": "1",
-      "Answer_Id": "1",
-      "crtatedDate": "quiz start datetime - Date type"
-    },
-    {
-      "Quiz_Id": 1,
-      "Student_Id": 2,
-      "Answer_Id": 1,
-      "CreatedDate": "2022-09-01T09:37:28.133Z",
-      "id": "1c931f82-8b79-4c2b-bf5c-0b6e1289b481"
-    }
-  ]
+    "StudentAnswers": [
+        {
+            "Quiz_Id": 1,
+            "Student_Id": 2,
+            "Answer_Id": 1,
+            "CreatedDate": "2022-09-01T09:37:28.133Z",
+            "id": "1c931f82-8b79-4c2b-bf5c-0b6e1289b481"
+        },
+        {
+            "Quiz_Id": 1,
+            "Student_Id": 2,
+            "Answer_Id": 1,
+            "CreatedDate": "2022-09-03T10:24:59.893Z",
+            "id": "64d2e1e7-928f-4414-afc5-13ad1b8b16a6"
+        },
+        {
+            "Quiz_Id": 1,
+            "Student_Id": 2,
+            "Answer_Id": 1,
+            "CreatedDate": "2022-09-03T10:26:41.840Z",
+            "id": "de6a2996-1470-4c3d-8f28-57c0758a8602"
+        },
+        {
+            "Quiz_Id": "",
+            "Student_Id": "",
+            "Answer_Id": 3,
+            "CreatedDate": "2022-09-03T10:26:48.745Z",
+            "id": "e32fd5fe-b67d-485b-b7b4-77b2eb1b397c"
+        }
+    ]
 }
