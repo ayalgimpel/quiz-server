@@ -13,7 +13,7 @@ class DBQuizesRepository {
     const data = JSON.parse(await readFile(jsonFileName));
     return data.Quiz;
   }
-  
+
 
   async AddNewQuiz(quiz) {
     let data = JSON.parse(await readFile(jsonFileName));
@@ -35,6 +35,9 @@ class DBQuizesRepository {
   async GetQuizByQuizCode(quizCode) {
     let quizes = await this.GetAllQuizes();
     const quize = quizes.find(q => q.Quiz_Code === quizCode)
+    if (!quize)
+      throw new Error(`Not found 'quiz' with quiz code [${quizCode}]`);
+      
     return this.GetQuizById(quize.Id);
   }
 
@@ -43,7 +46,7 @@ class DBQuizesRepository {
     let quizRef;
     data.Questions.forEach(element => {
       quizRef = element.Quizes_Id;
-          _.remove(quizRef, id => id === quizId)
+      _.remove(quizRef, id => id === quizId)
     });
     await writeFile(questionJasonFileName, JSON.stringify(data));
   }
