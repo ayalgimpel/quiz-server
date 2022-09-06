@@ -51,9 +51,9 @@ class DBQuestionsRepository {
   
   async GetByQuizId(quizId) {
     const quizData = JSON.parse(await readFile(jsonFileNameQuiz));
-    const quize = quizData.Quiz.filter(q => q.Id === quizId);
+    const quize = quizData.Quiz.find(q => q.Id === quizId);
     const filteredQuestions = [];
-    for (const id of quize[0].Questions) {
+    for (const id of quize.Questions) {
       let question = await this.GetQustionById(id);
       filteredQuestions.push(question);
     }

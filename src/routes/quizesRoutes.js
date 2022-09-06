@@ -72,6 +72,12 @@ router.put('/:quizId', asyncHandler(async (req, res) => {
     res.send(data);
   }));
 
+  router.post('/ChangeActivity', asyncHandler(async (req, res) => {
+    const { quizId } = req.body;
+    const data = await controller.ChangeActivity(quizId);
+    res.send(data);
+  }));
+
   router.post('/', asyncHandler(async (req, res) => {
     const quiz = req.body;
     const data = await controller.AddQuiz(quiz);

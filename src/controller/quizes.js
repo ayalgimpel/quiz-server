@@ -33,6 +33,9 @@ class QuizesController {
   GetByQuery({ institute, quizSubject }) {
     return quizesRepository.GetByQuery({ institute, quizSubject });
   }
+  ChangeActivity(quizId){
+    return quizesRepository.ChangeActivity(quizId)
+  }
 
 }
 

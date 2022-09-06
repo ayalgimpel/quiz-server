@@ -37,8 +37,6 @@ class DBstudentQuizesRepository {
     }
 
     async findOne({ StudentQuiz_Id }) {
-        console.log("StudentQuiz_Id");
-        console.log(StudentQuiz_Id);
         let data = JSON.parse(await readFile(jsonFileName));
         const found = data.StudentQuizes.find(StudentQuiz => StudentQuiz.Id === StudentQuiz_Id);
         return found;

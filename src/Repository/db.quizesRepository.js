@@ -13,7 +13,7 @@ class DBQuizesRepository {
     const data = JSON.parse(await readFile(jsonFileName));
     return data.Quiz;
   }
-  
+
 
   async AddNewQuiz(quiz) {
     let data = JSON.parse(await readFile(jsonFileName));
@@ -35,15 +35,24 @@ class DBQuizesRepository {
   async GetQuizByQuizCode(quizCode) {
     let quizes = await this.GetAllQuizes();
     const quize = quizes.find(q => q.Quiz_Code === quizCode)
+    if (!quize)
+      throw new Error(`Not found 'quiz' with quiz code [${quizCode}]`);
+
     return this.GetQuizById(quize.Id);
   }
-
+  async ChangeActivity(quizId) {
+    let data = JSON.parse(await readFile(jsonFileName));
+    let quiz = data.Quiz.find(item => item.Id === quizId)
+    quiz.IsActive = true;
+    await writeFile(jsonFileName, JSON.stringify(data));
+    return quiz;
+  }
   async DeleteQuizIdRefrence(quizId) {
     let data = JSON.parse(await readFile(questionJasonFileName));
     let quizRef;
     data.Questions.forEach(element => {
       quizRef = element.Quizes_Id;
-          _.remove(quizRef, id => id === quizId)
+      _.remove(quizRef, id => id === quizId)
     });
     await writeFile(questionJasonFileName, JSON.stringify(data));
   }
@@ -54,7 +63,7 @@ class DBQuizesRepository {
     let data = JSON.parse(await readFile(jsonFileName));
     const newQuizArr = data.Quiz.filter(q => q.Id !== quizID);
     data.Quiz = newQuizArr;
-    
+
     try {
       await writeFile(jsonFileName, JSON.stringify(data));
       await this.DeleteQuizIdRefrence(quizID);
