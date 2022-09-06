@@ -34,7 +34,7 @@ class DBStudentsRepository {
   }
   async GetStudentById(id) {
     const data = JSON.parse(await readFile(jsonFileName));
-    return data.Quiz.filter(quiz => quiz.Id === id);
+    return data.Student.find(student => student.Id === id || student.id === id);
   }
   Post(student) {
 
@@ -49,7 +49,14 @@ class DBStudentsRepository {
 
   async findOne({ studentId }) {
     const data = JSON.parse(await readFile(jsonFileName));
-    return data.Student.find(student => student.id === studentId);
+    return data.Student.find(student => student.id === studentId || student.id === studentId);
+  }
+
+
+  async getStudents(studentIds) {
+    const { Student } = await this.GetAllStudents();
+    const allStudents = Student;
+    return allStudents.filter(student => studentIds.indexOf(student.Id || student.id) > -1);
   }
 }
 

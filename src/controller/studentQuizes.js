@@ -44,7 +44,6 @@ class QuizesSubjectsController {
         const studentAnswers = await studentAnswersRepository.GetStudnetAnswers({ StudentQuiz_Id: studentQuizId });
 
         const totalQuestions = questions.length;
-        const totalStudentAnswers = studentAnswers.length;
         let totalStudentAnswersCount = 0;
 
         _.forIn(answersByquestionId, (answers, key) => {
@@ -62,7 +61,8 @@ class QuizesSubjectsController {
             passed: grade > quiz.Passing_Grade,
             totalQuestions,
             correntStudentAnswer: totalStudentAnswersCount,
-            passingGrade: quiz.Passing_Grade
+            passingGrade: quiz.Passing_Grade,
+            student
         }
 
         return result;
