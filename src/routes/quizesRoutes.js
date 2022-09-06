@@ -8,7 +8,7 @@ const asyncHandler = require("../helpers/asyncHandler");
 router.get(
   "/",
   asyncHandler(async (req, res) => {
-    const data = await controller.getAllQuizes();
+    const data = await controller.GetAllQuizes();
     res.send(data);
   })
 );
@@ -57,13 +57,18 @@ router.get('/:quizId/questions',
   }));
 
 router.put('/:quizId', asyncHandler(async (req, res) => {
-  console.log('sdfghj');
-  const { quizId } = req.params;
-  const payload = req.body;
-  const data = await controller.EditQuiz(quizId, payload);
-  res.send(data);
-}));
+    console.log('sdfghj');
+    const { quizId } = req.params;
+    const payload = req.body;
+    const data = await controller.EditQuiz(quizId, payload);
+    res.send(data);
+  }));
 
+  router.post('/', asyncHandler(async (req, res) => {
+    const quiz = req.body;
+    const data = await controller.AddQuiz(quiz);
+    res.send(data);
+  }));
 
 router.get('/AddQuestionToQuizList', asyncHandler(async (req, res) => {
   const response = await controller.AddQuestionToQuiz(req.query.questionId, req.query.quizId);

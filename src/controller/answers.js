@@ -1,15 +1,22 @@
 const db = require("../Repository/db.answersRepository");
 
 class AnswersController {
-  // Get Questions
-  getAllAnswers() {
-    return db.getAllanswers();
+  
+  GetQuestionAnswer(questionId){
+    return db.GetAllAnswers(questionId);
+  }
+  AddAnswer(answer){
+    return db.AddAnswer(answer);
+  }
+  // MarkAsCorrectAnswer(answer){
+  //   return db.MarkAsCorrectAnswer(answer)
+  // }
+  ChangeAnswersState(questionId){
+    return db.ChangeAnswersState(questionId)
+  }
+  SetCorrectAnswer(answerId){
+    return db.SetCorrectAnswer(answerId)
   }
 
-  // Add question to the list
-//   addQuestion(question) {
-//     if (!question.Title) throw "question has no title";
-//     return db.addQuestion(question);
-//   }
 }
 module.exports = new AnswersController();

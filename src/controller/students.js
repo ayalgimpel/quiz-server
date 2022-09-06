@@ -2,12 +2,12 @@ const studentsRepository = require("../Repository/db.studentsRepository.js");
 
 class StudentsController {
   // Get Questions
-  getAllStudents() {
-    return studentsRepository.getAllStudents();
+  GetAllStudents() {
+    return studentsRepository.GetAllStudents();
   }
 
-  createStudent(payload) {
-    return studentsRepository.createStudent(payload);
+  CreateStudent(payload) {
+    return studentsRepository.CreateStudent(payload);
   }
 }
 module.exports = new StudentsController();

@@ -9,8 +9,6 @@ class DBInstituteRepository {
       const data = JSON.parse(await readFile(jsonFileName));
       return data.Institute;
     }
-
-  
     async GetInstituteById(id) {
       const data = JSON.parse(await readFile(jsonFileName));
       return data.Institute.filter(insti => insti.Id === id);

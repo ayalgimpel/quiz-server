@@ -7,13 +7,13 @@ const jsonFileName = "./src/data/StudentsJson.json";
 
 class DBStudentsRepository {
 
-  async getAllStudents() {
+  async GetAllStudents() {
     const data = JSON.parse(await readFile(jsonFileName));
     return data;
   }
 
 
-  async createStudent(student) {
+  async CreateStudent(student) {
     let data = JSON.parse(await readFile(jsonFileName));
     student.id = uuid();
     data.Student.push(student);
@@ -21,7 +21,7 @@ class DBStudentsRepository {
     return student;
   }
 
-  async addStudent(student) {
+  async AddStudent(student) {
     let data = JSON.parse(await readFile(jsonFileName));
     const biggestId = Math.max.apply(
       Math,

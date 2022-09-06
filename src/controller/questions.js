@@ -2,22 +2,22 @@ const answersRepository = require("../Repository/db.answersRepository");
 const questionsRepository = require("../Repository/db.questionsRepository");
 
 class QuestionsController {
-  // Get Questions
-  getAllQuestions() {
-    return questionsRepository.getAllQuestions();
+  GetAllQuestions() {
+    return questionsRepository.GetAllQuestions();
   }
 
-  // Add question to the list
-  addQuestion(question) {
+  AddQuestion(question) {
     if (!question.Title) throw "question has no title";
-    return questionsRepository.addQuestion(question);
+    return questionsRepository.AddQuestion(question);
   }
   GetQustionById(id){
     return questionsRepository.GetQustionById(id);
   }
-
+  DeleteQuestion(questionId){
+    return questionsRepository.Delete(questionId);
+  }
   GetAnswersByQuestionId(questionId){
-    return answersRepository.getAllAnswers(questionId);
+    return answersRepository.GetAllAnswers(questionId);
   }
 }
 

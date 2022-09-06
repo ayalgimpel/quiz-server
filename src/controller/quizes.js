@@ -3,8 +3,8 @@ const questionsRepository = require("../Repository/db.questionsRepository");
 
 class QuizesController {
 
-  getAllQuizes() {
-    return quizesRepository.getAllQuizes();
+  GetAllQuizes() {
+    return quizesRepository.GetAllQuizes();
   }
   async DeleteQuiz(quizID) {
     return await quizesRepository.Delete(quizID);
@@ -15,8 +15,8 @@ class QuizesController {
   GetQuizByQuizCode(quizeCode) {
     return quizesRepository.GetQuizByQuizCode(quizeCode);
   }
-  AddQuiz() {
-    return quizesRepository.addQuiz();
+  AddQuiz(quiz) {
+    return quizesRepository.AddNewQuiz(quiz);
   }
   GetQuestionsByQuizId(quizId) {
     return questionsRepository.GetByQuizId(quizId);
