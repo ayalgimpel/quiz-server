@@ -1,22 +1,21 @@
 const db = require("../Repository/db.answersRepository");
 
 class AnswersController {
-  
-  GetQuestionAnswer(questionId){
+
+  GetQuestionAnswer(questionId) {
     return db.GetAllAnswers(questionId);
   }
-  AddAnswer(answer){
+  AddAnswer(answer) {
     return db.AddAnswer(answer);
   }
-  // MarkAsCorrectAnswer(answer){
-  //   return db.MarkAsCorrectAnswer(answer)
-  // }
-  ChangeAnswersState(questionId){
-    return db.ChangeAnswersState(questionId)
+  DeleteAnswer(answerId){
+    return db.DeleteAnswer(answerId);
   }
-  SetCorrectAnswer(answerId){
-    return db.SetCorrectAnswer(answerId)
+
+  ChangeAnswersState(questionId, answerId) {
+    return db.SetCorrectAnswer(questionId, answerId)
   }
+ 
 
 }
 module.exports = new AnswersController();

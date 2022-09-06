@@ -6,6 +6,8 @@ const jsonFileName = "./src/data/QuestionJson.json";
 const jsonFileNameQuiz = "./src/data/QuizesJson.json";
 const _ = require("lodash");
 
+
+
 class DBQuestionsRepository {
 
   async GetAllQuestions() {
@@ -24,43 +26,29 @@ class DBQuestionsRepository {
     await writeFile(jsonFileName, JSON.stringify(data));
     return newQuestion;
   }
+ async GetQustionById(id) {
+  let questions = await this.GetAllQuestions();
+   const question = questions.find(q => q.Id === id);
+   return question;
 
-  async GetQustionById(id) {
+  }
+  async DeleteAnswerRef(questionId,answerId){
     let questions = await this.GetAllQuestions();
-    const question = questions.find(question => question.Id === id);
-    return question;
+    let question = questions.filter(item=>item.Id===questionId);
+    _.remove(question.Answers, id=> id === answerId);
+    await writeFile(jsonFileName, JSON.stringify(questions));
   }
+  Post(question) {
 
-  async Delete(questionId) {
-    let data = JSON.parse(await readFile(jsonFileName));
-    const newQestionArr = data.Questions.filter(q => q.Id !== questionId);
-    data.Questions = newQestionArr;
-    
-    try {
-      await writeFile(jsonFileName, JSON.stringify(data));
-      await this.DeleteQuestionIdRefrence(questionId);
-      return { TransactionResult: true, deletedQuestionId: questionId };
-    }
-    catch (err) {
-      return { TransactionResult: false, error: err }
-    }
   }
-  async DeleteQuestionIdRefrence(questionId) {
-    let quizData = JSON.parse(await readFile(jsonFileNameQuiz));
-    let questionRef;
-    quizData.Quiz.forEach(element => {
-      questionRef = element.Questions;
-      _.remove(questionRef, id => id === questionId)
-    });
-    await writeFile(jsonFileNameQuiz, JSON.stringify(quizData));
-  }
- async AddAnswerRefrence(answerId,questionId){
-    let data = JSON.parse(await readFile(jsonFileName));
-    const question = data.Questions.find(q => q.Id === questionId);
-    question.Answers.push(answerId);
-    await writeFile(jsonFileName, JSON.stringify(data));
-  }
+  Put(question) {
 
+  }
+  Delete(id) {
+
+
+  }
+  
   async GetByQuizId(quizId) {
     const quizData = JSON.parse(await readFile(jsonFileNameQuiz));
     const quize = quizData.Quiz.filter(q => q.Id === quizId);

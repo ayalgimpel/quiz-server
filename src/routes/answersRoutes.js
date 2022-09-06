@@ -26,31 +26,26 @@ router.post('/', asyncHandler(async (req, res) => {
   const data = await controller.AddAnswer(answer);
   res.send(data);
 }));
-// router.post('/CahngeToCorrect', asyncHandler(async (req, res) => {
-//   const answer = req.body;
-//   const data = await controller.MarkAsCorrectAnswer(answer);
-//   res.send(data);
-// }));
+router.delete
+(
+  "/DeleteAnswer/:answerId",
+  asyncHandler(async (req, res) => {
+    const {answerId} = req.params;
+    const data = await controller.DeleteAnswer(answerId)
+    res.send(data);
+  })
+);
 
 router.post
 (
   "/ChangeAnswersState",
   asyncHandler(async (req, res) => {
-    const {questionId} = req.params;
-    const data = await controller.ChangeAnswersState(questionId)
+    const {questionId,answerId} = req.body;
+    const data = await controller.ChangeAnswersState(questionId,answerId)
     res.send(data);
   })
 );
 
-router.post
-(
-  "/SetCorrectAnswer",
-  asyncHandler(async (req, res) => {
-    const {questionId} = req.params;
-    const data = await controller.SetCorrectAnswer(answerId)
-    res.send(data);
-  })
-);
 
 
 module.exports = router;
