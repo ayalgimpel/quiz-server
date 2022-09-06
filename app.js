@@ -10,6 +10,7 @@ const studentsRouter = require("./src/routes/studentsRoutes");
 const instituteRouter = require("./src/routes/insituteRoutes");
 const studentAnswersRouter = require("./src/routes/studentAnswersRoutes");
 const studentQuizesRouter = require("./src/routes/studentQuizesRoutes");
+const reportRoutes = require("./src/routes/reportRoutes");
 
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -28,6 +29,7 @@ app.use("/api/institutes", instituteRouter);
 app.use("/api/answers", answersRouter);
 app.use("/api/studentAnswers", studentAnswersRouter);
 app.use("/api/studentQuizes", studentQuizesRouter);
+app.use("/api/reports", reportRoutes);
 
 
 app.listen(Urls.serverPort, () =>

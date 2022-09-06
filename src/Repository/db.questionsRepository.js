@@ -26,8 +26,8 @@ class DBQuestionsRepository {
   }
 
   async GetQustionById(id) {
-    const data = JSON.parse(await readFile(jsonFileName));
-    const question = data.Questions.find(question => question.Id === id);
+    let questions = await this.GetAllQuestions();
+    const question = questions.find(question => question.Id === id);
     return question;
   }
 

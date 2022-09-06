@@ -46,6 +46,11 @@ class DBStudentsRepository {
 
 
   }
+
+  async findOne({ studentId }) {
+    const data = JSON.parse(await readFile(jsonFileName));
+    return data.Student.find(student => student.id === studentId);
+  }
 }
 
 module.exports = new DBStudentsRepository();

@@ -33,7 +33,7 @@ class DBQuizesRepository {
   }
 
   async GetQuizByQuizCode(quizCode) {
-    let quizes = await this.getAllQuizes();
+    let quizes = await this.GetAllQuizes();
     const quize = quizes.find(q => q.Quiz_Code === quizCode)
     return this.GetQuizById(quize.Id);
   }
@@ -120,6 +120,13 @@ class DBQuizesRepository {
       return { TransactionResult: false, error: err }
     }
   }
+
+  async GetByQuery({ institute, quizSubject }) {
+    let data = JSON.parse(await readFile(jsonFileName));
+    const filterdQuizes = data.Quiz.filter(quiz => quiz.Institue_Name === institute && quiz.Quiz_Subject === quizSubject);
+    return filterdQuizes;
+  }
+
 
 
 }

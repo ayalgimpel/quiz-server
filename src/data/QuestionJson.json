@@ -43,6 +43,7 @@
             "Id": "3",
             "Name": "Three Qustion",
             "Quizes_Id": [
+                "1",
                 "2"
             ],
             "SingleChoice": true,
