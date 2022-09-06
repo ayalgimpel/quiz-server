@@ -2,8 +2,8 @@ const db = require("../Repository/db.answersRepository");
 
 class AnswersController {
   // Get Questions
-  getAllAnswers() {
-    return db.getAllanswers();
+  GetAllAnswers() {
+    return db.GetAllAnswers();
   }
 
   // Add question to the list

@@ -8,12 +8,12 @@ const jsonFileNameQuiz = "./src/data/QuizesJson.json";
 
 class DBQuestionsRepository {
 
-  async getAllQuestions() {
+  async GetAllQuestions() {
     const data = JSON.parse(await readFile(jsonFileName));
     return data.Questions;
   }
 
-  async addQuestion(question) {
+  async AddQuestion(question) {
     let data = JSON.parse(await readFile(jsonFileName));
     const biggestId = Math.max.apply(
       Math,
@@ -25,7 +25,7 @@ class DBQuestionsRepository {
     return newQuestion;
   }
  async GetQustionById(id) {
-  let questions = await this.getAllQuestions();
+  let questions = await this.GetAllQuestions();
    const question = questions.find(q => q.Id === id);
    return question;
   // return this.GetQustionById(question.Id);

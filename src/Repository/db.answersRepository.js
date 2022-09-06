@@ -6,7 +6,7 @@ const jsonFileName = "./src/data/AnswersJson.json";
 
 class DBAnswersRepository {
 
-    async getAllAnswers(questionId) {
+    async GetAllAnswers(questionId) {
         const { Answers } = JSON.parse(await readFile(jsonFileName));
         const filterd = Answers.filter(answer => answer.Qustion_Id == questionId);
         return filterd

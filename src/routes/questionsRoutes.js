@@ -5,14 +5,14 @@ const asyncHandler = require("../helpers/asyncHandler");
 
 // Get questions from json
 router.get("/", asyncHandler(async (req, res) => {
-  const data = await controller.getAllQuestions();
+  const data = await controller.GetAllQuestions();
   res.send(data);
 }));
 
 // Add question to the list in json
 router.post("/", asyncHandler(async (req, res) => {
   try {
-    const data = await controller.addQuestion(req.body);
+    const data = await controller.AddQuestion(req.body);
     res.status(200).send(data);
   } catch (err) {
     res.status(400).send(err);

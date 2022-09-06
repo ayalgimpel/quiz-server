@@ -3,8 +3,8 @@ const questionsRepository = require("../Repository/db.questionsRepository");
 
 class QuizesController {
 
-  getAllQuizes() {
-    return quizesRepository.getAllQuizes();
+  GetAllQuizes() {
+    return quizesRepository.GetAllQuizes();
   }
   async DeleteQuiz(quizID) {
     return await quizesRepository.Delete(quizID);
@@ -16,21 +16,23 @@ class QuizesController {
     return quizesRepository.GetQuizByQuizCode(quizeCode);
   }
   AddQuiz() {
-    return quizesRepository.addQuiz();
+    return quizesRepository.AddQuiz();
   }
   GetQuestionsByQuizId(quizId) {
     return questionsRepository.GetByQuizId(quizId);
   }
-  EditQuiz(quizId, payload){
+  EditQuiz(quizId, payload) {
     return quizesRepository.EditQuiz(quizId, payload);
   }
-  AddQuestionToQuiz(questionId,quizId){
-    return quizesRepository.AddQuestionToQuiz(questionId,quizId)
+  AddQuestionToQuiz(questionId, quizId) {
+    return quizesRepository.AddQuestionToQuiz(questionId, quizId)
   }
-  RemoveQuestionFromQuiz(questionId,quizId){
-    return quizesRepository.RemoveQuestionFromQuiz(questionId,quizId);
+  RemoveQuestionFromQuiz(questionId, quizId) {
+    return quizesRepository.RemoveQuestionFromQuiz(questionId, quizId);
   }
-
+  GetByQuery({ institute, quizSubject }) {
+    return quizesRepository.GetByQuery({ institute, quizSubject });
+  }
 
 }
 

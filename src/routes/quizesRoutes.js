@@ -8,8 +8,16 @@ const asyncHandler = require("../helpers/asyncHandler");
 router.get(
   "/",
   asyncHandler(async (req, res) => {
-    const data = await controller.getAllQuizes();
-    res.send(data);
+    const { institute, quizSubject } = req.params;
+    
+    if (!institute && !quizSubject) {
+      const data = await controller.GetAllQuizes();
+      res.send(data); // return all
+    }
+
+    const data = await controller.GetByQuery({ institute, quizSubject });
+    res.send(data); // return by query filter
+
   })
 );
 router.get(
@@ -71,11 +79,14 @@ router.get('/AddQuestionToQuizList', asyncHandler(async (req, res) => {
     return res.send(response.addedQuestionID);
   return res.status(500).send(response.error);
 }));
+
 router.get('/RemoveQuestionFromList', asyncHandler(async (req, res) => {
   const response = await controller.RemoveQuestionFromQuiz(req.query.questionId, req.query.quizId);
   if (response.TransactionResult)
     return res.send(response.removedQuestionID);
   return res.status(500).send(response.error);
 }));
+
+
 
 module.exports = router;

@@ -1,1 +1,20 @@
-{"StudentQuizes":[{"Id":"1","Quiz_Id":"1","Student_Id":"1","CreatedDate":"quiz start datetime - Date type","EndDate":"quiz end datetime - Date type","AnswerQustiones":[{"Qustion_Id":"1","Answer_Id":"1"}]},{"Quiz_Id":1,"Student_Id":2,"CreatedDate":"2022-09-01T08:43:13.421Z","Id":"b832dde3-7c68-4e2b-bb71-ec54362061dd"},{"Quiz_Id":"1","Student_Id":"","CreatedDate":"2022-09-03T12:04:40.010Z","Id":"1b5fa5c6-1e7c-4a39-b553-4f511f3ef164"},{"Quiz_Id":"1","Student_Id":"081bc249-8d3f-404d-8596-8a9b687a5c02","CreatedDate":"2022-09-03T12:09:42.045Z","Id":"e170cdc3-1bea-4f03-baf9-dbb7ea740001"},{"Quiz_Id":"1","Student_Id":"06a1230b-1318-4787-9483-e6f34667d84c","CreatedDate":"2022-09-03T12:17:10.592Z","Id":"cee3940d-0063-4739-a80b-7ea59482b876"}]}
+{
+    "StudentQuizes": [
+        {
+            "Quiz_Id": "1",
+            "Student_Id": 2,
+            "CreatedDate": "2022-09-01T08:43:13.421Z",
+            "Id": "b832dde3-7c68-4e2b-bb71-ec54362061dd",
+            "finished": true,
+            "finishedDate": "2022-09-01T12:17:53.828Z"
+        },
+        {
+            "Quiz_Id": "1",
+            "Student_Id": "581f0c14-34cf-4c1d-a455-ecc8f7ce9ce0",
+            "CreatedDate": "2022-09-06T08:39:04.848Z",
+            "Id": "55d6f1fc-4d06-47a4-963c-d19204c9ed60",
+            "finished": true,
+            "finishedDate": "2022-09-06T12:17:53.828Z"
+        }
+    ]
+}

@@ -7,13 +7,13 @@ const jsonFileName = "./src/data/StudentsJson.json";
 
 class DBStudentsRepository {
 
-  async getAllStudents() {
+  async GetAllStudents() {
     const data = JSON.parse(await readFile(jsonFileName));
     return data;
   }
 
 
-  async createStudent(student) {
+  async CreateStudent(student) {
     let data = JSON.parse(await readFile(jsonFileName));
     student.id = uuid();
     data.Student.push(student);
@@ -45,6 +45,11 @@ class DBStudentsRepository {
   Delete(id) {
 
 
+  }
+
+  async findOne({ studentId }) {
+    const data = JSON.parse(await readFile(jsonFileName));
+    return data.Student.find(student => student.id === studentId);
   }
 }
 
