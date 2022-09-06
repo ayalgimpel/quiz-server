@@ -3,22 +3,20 @@
     {
       "Id": "1",
       "Quiz_Code": "1",
-      "Name": "First Animals Quiz - Tel Aviv University-Updated !",
-      "Intrudaction": "Welcome to first edited biologic quiz of tel aviv university, good luck...! yyyyyyyyyy",
+      "Name": "Second Animals Quiz - Tel Aviv University",
+      "Intrudaction": "Welcome to Second Anomal quiz of tel aviv university, good luck...!",
       "Institue_Name": "Tel-Aviv University",
       "Quiz_Subject": "Animals",
       "Questions": [
-        "2",
-        "1",
-        "3"
+        "1"
       ],
-      "Passing_Grade": 70,
+      "Passing_Grade": 56,
       "Aproached_Students_Id": [],
-      "Last_Updated": "25.01.01",
+      "Last_Updated": "25.01.02",
       "IsActive": false,
-      "Header": "messege after submitimg : ",
-      "Messege_If_Past": "Good Job !!!:))))))",
-      "Messege_If_Faild": "Try Next Time...."
+      "Header": "",
+      "Messege_If_Past": "",
+      "Messege_If_Faild": ""
     },
     {
       "Id": "2",
@@ -38,6 +36,26 @@
       "Header": "",
       "Messege_If_Past": "",
       "Messege_If_Faild": ""
+    },
+    {
+      "Id": "50edfc81-6087-8d39-00c5-8decc8f3886f",
+      "Quiz_Code": "6f49b88d-0726-eb14-3fcd-b0f18315b1e8",
+      "Name": "ddddd",
+      "Intrudaction": "ddddd",
+      "Institue_Name": "Ben-Gurion University",
+      "Quiz_Subject": "Math",
+      "Questions": [
+        "1",
+        "2",
+        "3"
+      ],
+      "Passing_Grade": 70,
+      "Aproached_Students_Id": [],
+      "Last_Updated": "Mon Sep 05 2022 11:04:42 GMT+0300 (שעון ישראל (קיץ))",
+      "IsActive": false,
+      "Header": "dddd",
+      "Messege_If_Past": "dddd",
+      "Messege_If_Faild": "dddd"
     }
   ]
 }

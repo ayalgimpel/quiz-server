@@ -13,20 +13,11 @@ class DBQuizesRepository {
     return data.Quiz;
   }
 
-  CreateUUID() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-      return v.toString(16);
-    });
-  }
 
   async AddNewQuiz(quiz) {
     let data = JSON.parse(await readFile(jsonFileName));
-    const newId = this.CreateUUID();
-    const newQuiz = { Id: newId, Name: quiz.Name };
-    data.Quiz.push(newQuiz);
+    data.Quiz.push(quiz)
     await writeFile(jsonFileName, JSON.stringify(data));
-    return newQuiz;
   }
   async GetQuizById(id) {
     const data = JSON.parse(await readFile(jsonFileName));
@@ -43,11 +34,20 @@ class DBQuizesRepository {
   async GetQuizByQuizCode(quizCode) {
     let quizes = await this.GetAllQuizes();
     const quize = quizes.find(q => q.Quiz_Code === quizCode)
+    if (!quize)
+      throw new Error(`Not found 'quiz' with quiz code [${quizCode}]`);
+      
     return this.GetQuizById(quize.Id);
   }
 
-  Post(quiz) {
-
+  async DeleteQuizIdRefrence(quizId) {
+    let data = JSON.parse(await readFile(questionJasonFileName));
+    let quizRef;
+    data.Questions.forEach(element => {
+      quizRef = element.Quizes_Id;
+      _.remove(quizRef, id => id === quizId)
+    });
+    await writeFile(questionJasonFileName, JSON.stringify(data));
   }
   Put(quiz) {
 
